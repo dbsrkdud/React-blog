@@ -65,6 +65,12 @@ function App() {
                     copy[i] = copy[i] + 1;
                     좋아요변경(copy);
                   } }> 👍</span> { 좋아요[i] }
+                <button onClick = { () => {
+                  let copy = [...글제목];
+                  copy.splice(i, 1);
+                  console.log(copy);
+                  글제목변경(copy);
+                } }>삭제</button>
               </h4>
                <p>6월 5일</p>
             </div>
@@ -81,7 +87,9 @@ function App() {
         let copy = [...글제목];
         copy.unshift(입력값);
         글제목변경(copy);
-        좋아요.push(0);
+        let copy2 = [...좋아요];
+        copy2.unshift(0);
+        좋아요변경(copy2);
       } }>글쓰기</button>
 
       {
@@ -101,7 +109,8 @@ function Modal(props){
         <h4>{ props.글제목[props.title] }</h4>
         <p>날짜</p>
         <p>상세내용</p>
-        <button onClick={ () => { props.글제목변경(['여자 코트 추천', '강남 우동 맛집', '파이썬 독학']) } }>글수정</button>
+        {/* <button onClick={ () => { props.글제목변경(['여자 코트 추천', '강남 우동 맛집', '파이썬 독학']) } }>글수정</button> */}
+        <button>글수정</button>
       </div>
   )
 }
